@@ -1,0 +1,187 @@
+/* =============================================================================
+   App specific CSS file.
+   ========================================================================== */
+
+/* universal */
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,700,700italic,400italic,300,300italic);
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-top: 60px;
+  font-family: Georgia, serif;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.container-narrow{
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+/* Forms */
+
+.navbar-form input[type="text"],
+.navbar-form input[type="password"] {
+  width: 180px;
+}
+
+
+.form-register {
+  width: 50%;
+}
+
+.form-register .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* footer */
+
+body footer {
+  color: #999999;
+  margin: 0;
+  padding: 0;
+  height: 40px;
+  line-height: 40px;
+  overflow: hidden;
+}
+
+.footer_content {
+  padding: 0 10px;
+}
+
+footer a {
+  color: #999999;
+}
+
+footer p {
+  float: right;
+  margin-right: 25px;
+}
+
+footer ul {
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 10px;
+}
+
+footer .company {
+  float: left;
+  margin-left: 25px;
+}
+
+footer .footer-nav {
+  float: right;
+  margin-right: 25px;
+  list-style: none;
+}
+
+/* home */
+
+.ig_login_button {
+  
+  width: 300px;
+  border-radius: 5px;
+}
+
+/* waiting_modal */
+.waiting_modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('../../img/FlatPreloaders/128x128/Preloader_2/Preloader_2.gif') 
+                50% 50% 
+                no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;   
+}
+
+/* Anytime the body has the loading class, our
+   waiting_modal element will be visible */
+body.loading .waiting_modal {
+    display: block;
+}
+
+.brand_logo {
+  height: 100px;
+}
+
+.delete_link_button, .delete_link_button:active, .delete_link_button:hover {
+    color: #c0392b;
+}
+
+{
+    color: #c0392b;
+}
+
+a.long_url {
+    white-space: pre-wrap; /* css-3 */    
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */    
+    white-space: -o-pre-wrap; /* Opera 7 */    
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
+
+/* plan */
+
+.select_plan_div .plan {
+  border: 1px solid #4183D7;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.select_plan_div .plan:hover {
+  border: none;
+}
+
+.select_plan_div .plan:hover a {
+  color: white;
+}
+
+.select_plan_div .plan1:hover {
+  background-color: #89C4F4;
+}
+
+.select_plan_div .plan2:hover {
+  background-color: #4B77BE;
+  color: white;
+}
+
+.select_plan_div .plan3:hover {
+  background-color: #3A539B;
+  color: white;
+}
+
+ol {
+  padding-left: 15px;
+}

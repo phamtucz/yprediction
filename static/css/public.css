@@ -1,0 +1,183 @@
+.catchline {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.button_div {
+	margin-top: 30px;
+	text-align: center;
+}
+
+.center {
+	text-align: center
+}
+
+.navbar {
+	height: 60px;
+	background-color: white;
+}
+
+.navbar .logo {
+	height: 40px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.navbar .btn {
+	background-color: #3A539B;
+	border-color: #3A539B;
+}
+
+.navbar:not(.unscrolled) .logo.black {
+	display: visible;
+}
+
+.navbar:not(.unscrolled) .logo.white {
+	display: none;
+}
+
+.navbar.unscrolled .logo.black {
+	display: none;
+}
+
+.navbar.unscrolled .logo.white {
+	display: visible;
+}
+
+.navbar.unscrolled {
+	background-color: transparent;
+	border: 0;
+}
+
+.navbar.unscrolled .navbar-collapse {
+	background-color: transparent;
+}
+
+.navbar.unscrolled .navbar-nav li > a {
+	color: white;
+}
+
+body .navbar.navbar-default .sign_in_button {
+	margin-left: 20px;
+	color: white;
+}
+
+.navbar-collapse { 
+	background: white; 
+} 
+.navbar-toggle {
+	border: 1px solid #4183D7;
+}
+
+body .navbar-nav>li>a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+}
+
+.home_block {
+	display: block;
+	margin: 0;
+	padding: 40px 0;
+}
+
+.home_block .container {
+	max-width: 650px;
+}
+
+.pricing_block .container {
+	max-width: 800px;
+}
+
+.home_block_logos .container {
+	max-width: 800px;
+}
+
+
+.home_block_0 {
+	background-image: url(../img/cover.png), url(../img/landing-hero.jpeg);
+	background-size: auto, cover;
+	background-repeat: repeat, no-repeat;
+	background-position: top left, center center;
+
+	min-height: 500px;
+	color: white;
+	display: flex;
+	align-items: center;
+}
+
+.home_block_0 .btn {
+	background-color: #3A539B;
+	border-color: #3A539B;
+}
+
+.home_block_0 .btn:hover {
+	background-color: transparent;
+}
+
+.home_block_1 {
+	background-color: #E4F1FE;
+}
+
+.home_block_2 {
+	background-color: #3A539B;
+	color: white;
+}
+
+.home_block_logos {
+	background_color: white;
+}
+
+
+.home_block_logos .brands_div > div {
+	display: inline-block;
+	vertical-align: middle;
+	float: none;
+}
+
+.home_block_logos .brands_div img {
+	display: inline-block;
+	opacity: 0.7;
+}
+
+.home_block_whystf {
+	padding: 15px;
+}
+
+.home_block_feedshop {
+	background-color: #fafafa;
+}
+
+.why_stf .column {
+	min-height: 220px;
+}
+
+@media only screen and (max-width : 480px) {
+	.why_stf .column {
+		min-height: 260px;
+	}
+}
+
+@media only screen and (max-width : 320px) {
+	.why_stf .column {
+		min-height: 300px;
+	}
+}
+
+.home_block img {
+	width: 100%;
+}
+
+.home_block img.logo {
+	display: block;
+	margin: auto;
+	max-width: 300px;
+    margin-bottom: 30px;
+}
+
+
+footer {
+	background-color: #22313F;
+	color: #999;
+	border: none;
+}
