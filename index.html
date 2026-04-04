@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Y Prediction | Global Market Liquidity</title>
+    <style>
+        /* --- CSS Styling --- */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000000; /* Deep Black Background */
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Background Canvas for Moving Dots */
+        #liquidity-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* Glassmorphism Content Box */
+        .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 60px 80px;
+            border-radius: 2px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin: 0 0 10px 0;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+        }
+
+        h1 span {
+            color: #ffffff;
+            animation: glow 4s infinite ease-in-out;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            opacity: 0.6;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        .email-link {
+            font-size: 1.1rem;
+            color: #ffffff;
+            text-decoration: none;
+            opacity: 0.8;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 5px;
+        }
+
+        .email-link:hover {
+            opacity: 1;
+            border-bottom: 1px solid rgba(255, 255, 255, 1);
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+        }
+
+        /* Subtle glowing animation for the brand name */
+        @keyframes glow {
+            0% { opacity: 1; text-shadow: 0 0 10px rgba(255,255,255,0.2); }
+            50% { opacity: 0.7; text-shadow: 0 0 30px rgba(255,255,255,0.5); }
+            100% { opacity: 1; text-shadow: 0 0 10px rgba(255,255,255,0.2); }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="liquidity-canvas"></canvas>
+
+    <div class="content">
+        <h1><span>Y</span> PREDICTION</h1>
+        <p class="tagline">Providing Market Liquidity</p>
+        <a href="mailto:hi@yprediction.com" class="email-link">hi@yprediction.com</a>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('liquidity-canvas');
+        const ctx = canvas.getContext('2d');
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        const particles = [];
+        const particleCount = 130;
+        const connectionDistance = 160;
+
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 1.5 + 0.5;
+                this.speedX = (Math.random() - 0.5) * 0.4;
+                this.speedY = (Math.random() - 0.5) * 0.4;
+                this.opacity = Math.random();
+                this.fadeSpeed = Math.random() * 0.008 + 0.003;
+                this.direction = 1;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
+                if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
+
+                this.opacity += this.fadeSpeed * this.direction;
+                if (this.opacity > 0.9 || this.opacity < 0.1) this.direction *= -1;
+            }
+
+            draw() {
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function connect() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < connectionDistance) {
+                        const lineOpacity = (1 - (dist / connectionDistance)) * 0.12;
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${lineOpacity})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            connect();
+            requestAnimationFrame(animate);
+        }
+
+        init();
+        animate();
+    </script>
+</body>
+</html>
